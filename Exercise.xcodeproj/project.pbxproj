@@ -15,6 +15,9 @@
 		51ABBE262474C17D00A5E739 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51ABBE242474C17D00A5E739 /* LaunchScreen.storyboard */; };
 		51ABBE312474C17E00A5E739 /* ExerciseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ABBE302474C17E00A5E739 /* ExerciseTests.swift */; };
 		51ABBE3C2474C17E00A5E739 /* ExerciseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ABBE3B2474C17E00A5E739 /* ExerciseUITests.swift */; };
+		51ABBE4C247580B900A5E739 /* KirokuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ABBE4B247580B900A5E739 /* KirokuTableViewController.swift */; };
+		51ABBE4E247586B600A5E739 /* KirokuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ABBE4D247586B600A5E739 /* KirokuTableViewCell.swift */; };
+		51B5D2D524768B9700970990 /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B5D2D424768B9700970990 /* ExerciseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		51ABBE372474C17E00A5E739 /* ExerciseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExerciseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		51ABBE3B2474C17E00A5E739 /* ExerciseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseUITests.swift; sourceTree = "<group>"; };
 		51ABBE3D2474C17E00A5E739 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51ABBE4B247580B900A5E739 /* KirokuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KirokuTableViewController.swift; sourceTree = "<group>"; };
+		51ABBE4D247586B600A5E739 /* KirokuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KirokuTableViewCell.swift; sourceTree = "<group>"; };
+		51B5D2D424768B9700970990 /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,9 @@
 				51ABBE222474C17D00A5E739 /* Assets.xcassets */,
 				51ABBE242474C17D00A5E739 /* LaunchScreen.storyboard */,
 				51ABBE272474C17D00A5E739 /* Info.plist */,
+				51B5D2D424768B9700970990 /* ExerciseViewController.swift */,
+				51ABBE4B247580B900A5E739 /* KirokuTableViewController.swift */,
+				51ABBE4D247586B600A5E739 /* KirokuTableViewCell.swift */,
 			);
 			path = Exercise;
 			sourceTree = "<group>";
@@ -259,8 +268,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51ABBE4E247586B600A5E739 /* KirokuTableViewCell.swift in Sources */,
 				51ABBE1E2474C17900A5E739 /* ViewController.swift in Sources */,
+				51ABBE4C247580B900A5E739 /* KirokuTableViewController.swift in Sources */,
 				51ABBE1A2474C17900A5E739 /* AppDelegate.swift in Sources */,
+				51B5D2D524768B9700970990 /* ExerciseViewController.swift in Sources */,
 				51ABBE1C2474C17900A5E739 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,14 +446,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1.0.0;
+				DEVELOPMENT_TEAM = 2K446D59RQ;
 				INFOPLIST_FILE = Exercise/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.maririn.ueda.Exercise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "L12MarinUeda-Distribution";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -451,14 +468,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1.0.0;
+				DEVELOPMENT_TEAM = 2K446D59RQ;
 				INFOPLIST_FILE = Exercise/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.maririn.ueda.Exercise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "L12MarinUeda-Distribution";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
