@@ -9,44 +9,12 @@
 import UIKit
 
 class KirokuTableViewController: UITableViewController {
-    
-    var wordArray: [Dictionary<Int, Int>] = []
-    
-    let saveData = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        if saveData.array(forKey: "WORD") != nil {
-            wordArray = saveData.array(forKey: "WORD") as! [Dictionary<Int, Int>]
-        }
-        tableView.reloadData()
-    }
 
-    // MARK: - Table view data source
-    //セクション数を指定します
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    //セルの個数を指定します(ここで日数分に変えたい)
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return wordArray.count
-    }
-    
-    //セルの中身の表示の仕方を設定します
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! KirokuTableViewCell
-        
-        let nowIndexPathDictionary = wordArray[indexPath.row]
-        
-        cell.dateLabel.text = nowIndexPathDictionary["date"]
-        cell.secondsLabel.text = nowIndexPathDictionary["seconds"]
-        
-        return cell
     }
 
     /*
@@ -104,4 +72,4 @@ class KirokuTableViewController: UITableViewController {
     }
     */
 
-}
+

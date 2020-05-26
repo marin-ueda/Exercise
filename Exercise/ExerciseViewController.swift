@@ -9,43 +9,58 @@
 import UIKit
 
 class ExerciseViewController: UIViewController {
-    
-    var timerObj: Timer?
-    var counter = 0
-    @IBOutlet var TimerLabel: UILabel!
+    //前ページからタイマーの数字持ってくる
+    var argString = ""
 
+    @IBOutlet var menu: UILabel!
+    @IBOutlet weak var TimerLabel: UILabel!
+
+    var count: Float = 0.0
+    
+    var timer: Timer = Timer()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        func startTimer(_ sender: Any) {
-            if timerObj == nil {
-                timerObj = Timer.scheduledTimer (
-                timeInterval: TimeInterval(1),
-                target: self,
-                selector: #selecter(ViewController.timerActionRepeat),
-                userInfo: nil
-                repeats: true)
-            }
-        }
-        func timerActionRepeat() {
-            TimerLabel.text = String(repeating: "niko", count: counter)
-            counter += 1
-        }
-        
-        func stopTimer(_ sender: Any) {
-            if timerObj != nil {
-                timerObj?.invalidate()
-                timerObj = nil
-                TimerLabel.text = "Nice Fight!!"
-                counter = 0
-            }
-        }
-
     
-//    @IBAction func restart() {
+        //前ページからタイマーの数字持ってくる
+        //引数をラベルにセット
+        TimerLabel.text = argString
         
     }
+
+    
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    @objc func up() {
+        //countを0.01足す
+        count = count + 0.01
+        //ラベルに小数点以下2桁まで表示
+        TimerLabel.text = String(format: "%.2f", count)
+    }
+    
+    @IBAction func start() {
+        if !timer.isValid {
+            //タイマーが動作していなかったら動かす
+            timer = Timer.scheduledTimer(timeInterval: 0.01,
+                                         target: self,
+                                         selector: #selector(self.up),
+                                         userInfo: nil,
+                                         repeats: true
+            )
+        }
+    }
+    @IBAction func stop() {
+        if timer.isValid {
+            //タイマーが動作していたら停止する
+            timer.invalidate()
+        }
+    }
+        
 
     /*
     // MARK: - Navigation

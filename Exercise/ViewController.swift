@@ -9,9 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBAction func back(sender: UIStoryboard){
-        
-    }
+    
+    //前ページからタイマーの数字持ってくる
+    @IBOutlet weak var textField1: UITextField!
     
     @IBAction func KirokuButtonTapped() {
         let saveData = UserDefaults.standard
@@ -40,6 +40,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+    }
+    //前ページからタイマーの数字持ってくる
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toExerciseView" {
+            let nextView = segue.destination as! ExerciseViewController
+            nextView.argString = textField1.text!
+        }
     }
 
 

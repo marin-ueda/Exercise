@@ -89,6 +89,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="成果を振り返る"/>
                                 <connections>
+                                    <action selector="KirokuButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="XTb-0S-p8G"/>
                                     <segue destination="Qnf-SJ-f0N" kind="presentation" modalPresentationStyle="fullScreen" id="qA2-Al-DGY"/>
                                 </connections>
                             </button>
@@ -104,7 +105,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <segue destination="deI-uo-IFK" kind="presentation" identifier="toExerciseView" modalPresentationStyle="fullScreen" id="OBE-Y2-fhi"/>
+                        <segue destination="deI-uo-IFK" kind="push" identifier="toExerciseView" id="OBE-Y2-fhi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -167,10 +168,10 @@
             <objects>
                 <viewController id="deI-uo-IFK" customClass="ExerciseViewController" customModule="Exercise" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ngq-1o-z5d">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="内容" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4a-gM-nY6">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="menu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4a-gM-nY6">
                                 <rect key="frame" x="85" y="56" width="244" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="35"/>
@@ -200,14 +201,35 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbj-Lt-qJz">
+                                <rect key="frame" x="189" y="399" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="start" destination="deI-uo-IFK" eventType="touchUpInside" id="A3E-Sh-iVv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ALr-4a-Beu">
+                                <rect key="frame" x="190" y="449" width="32" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Stop"/>
+                                <connections>
+                                    <action selector="stop" destination="deI-uo-IFK" eventType="touchUpInside" id="FOy-WG-hL7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.70056700709999997" green="0.98131579160000004" blue="0.58424180749999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="m9e-fL-fBr"/>
                     </view>
+                    <navigationItem key="navigationItem" id="DZm-0Y-a50"/>
+                    <connections>
+                        <outlet property="TimerLabel" destination="v7S-gS-WQ1" id="cfm-Av-dLj"/>
+                        <outlet property="menu" destination="c4a-gM-nY6" id="dlH-b6-ltN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g1M-gG-2rX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="855.07246376811599" y="118.52678571428571"/>
+            <point key="canvasLocation" x="893" y="119"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Q68-DK-kCD">
