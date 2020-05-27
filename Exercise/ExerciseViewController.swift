@@ -11,8 +11,9 @@ import UIKit
 class ExerciseViewController: UIViewController {
     //前ページからタイマーの数字持ってくる
     var argString = ""
+    var menuString = ""
 
-    @IBOutlet var menu: UILabel!
+    @IBOutlet var menuLabel: UILabel!
     @IBOutlet weak var TimerLabel: UILabel!
 
     var count: Float = 0.0
@@ -26,6 +27,10 @@ class ExerciseViewController: UIViewController {
         //前ページからタイマーの数字持ってくる
         //引数をラベルにセット
         TimerLabel.text = argString
+        
+        //メニューラベルにメニュー名を表示させる動き
+        menuLabel.text = menuString
+        
         
     }
 
@@ -60,8 +65,15 @@ class ExerciseViewController: UIViewController {
             timer.invalidate()
         }
     }
-        
+    //メニュー名を表示
+/*    func buttonAction1() {
+        menuLabel.text = "腹筋"
+    }
+    func buttonAction2() {
+        menuLabel.text = "ねじり"
+    }
 
+    
     /*
     // MARK: - Navigation
 
@@ -71,5 +83,5 @@ class ExerciseViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+*/
 }
