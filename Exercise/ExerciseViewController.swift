@@ -61,6 +61,16 @@ class ExerciseViewController: UIViewController {
     func menua() {
         if tappedBtnTag == 1 {
             menuLabel.text = String("腹筋")
+        } else if tappedBtnTag == 2 {
+            menuLabel.text = String("ねじり")
+        } else if tappedBtnTag == 3 {
+            menuLabel.text = String("体幹")
+        } else if tappedBtnTag == 4 {
+            menuLabel.text = String("スクワット")
+        } else if tappedBtnTag == 5 {
+            menuLabel.text = String("背筋")
+        } else if tappedBtnTag == 6 {
+            menuLabel.text = String("その他のトレーニング")
         }
     }
     

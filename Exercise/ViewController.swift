@@ -40,12 +40,36 @@ class ViewController: UIViewController {
 
     //0531sender.tagで変数を作る
     // ボタンタップしてタグを取得、遷移する
-      @IBAction func hukkin(_ sender: UIButton) {
-          let tagNumber = sender.tag
-
-          // タグをsenderでprepareに送る
+    @IBAction func hukkin(_ sender: UIButton) {
+        let tagNumber = sender.tag
+        // タグをsenderでprepareに送る
         self.performSegue(withIdentifier: "toExercise", sender: tagNumber)
-      }
+    }
+    @IBAction func neziri(_ sender: UIButton) {
+        let tagNumber = sender.tag
+        // タグをsenderでprepareに送る
+        self.performSegue(withIdentifier: "toExercise", sender: tagNumber)
+    }
+    @IBAction func takikan(_ sender: UIButton) {
+        let tagNumber = sender.tag
+        // タグをsenderでprepareに送る
+        self.performSegue(withIdentifier: "toExercise", sender: tagNumber)
+    }
+    @IBAction func sukuwatto(_ sender: UIButton) {
+        let tagNumber = sender.tag
+        // タグをsenderでprepareに送る
+        self.performSegue(withIdentifier: "toExercise", sender: tagNumber)
+    }
+    @IBAction func haikin(_ sender: UIButton) {
+        let tagNumber = sender.tag
+        // タグをsenderでprepareに送る
+        self.performSegue(withIdentifier: "toExercise", sender: tagNumber)
+    }
+    @IBAction func sonota(_ sender: UIButton) {
+        let tagNumber = sender.tag
+        // タグをsenderでprepareに送る
+        self.performSegue(withIdentifier: "toExercise", sender: tagNumber)
+    }
 
       override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
@@ -83,7 +107,7 @@ class ViewController: UIViewController {
     //腹筋ボタンを押したら、次の画面のラベルに腹筋！
 /*    @IBAction func hukkin(_ sender: Any) {
         self.performSegue(withIdentifier: "toExercise", sender: nil)
-    }*/
+    }
     @IBAction func neziri(_ sender: Any) {
         self.performSegue(withIdentifier: "toExercise", sender: nil)
     }
@@ -99,7 +123,7 @@ class ViewController: UIViewController {
     @IBAction func sonota(_ sender: Any) {
         self.performSegue(withIdentifier: "toExercise", sender: nil)
     }
-   
+   */
    
 
     }
