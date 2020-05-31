@@ -37,7 +37,35 @@ class ViewController: UIViewController {
         }
         
     }
-    //コードで画面遷移
+
+    //0531sender.tagで変数を作る
+    // ボタンタップしてタグを取得、遷移する
+      @IBAction func hukkin(_ sender: UIButton) {
+          let tagNumber = sender.tag
+
+          // タグをsenderでprepareに送る
+        self.performSegue(withIdentifier: "toExercise", sender: tagNumber)
+      }
+
+      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+          if segue.identifier == "toExercise" {
+              // 遷移先VCを取得して
+              if let ExcerciseVC = segue.destination as? ExerciseViewController {
+                  //遷移先VCのプロパティにアクセス、senderで送られてきたタグをIntに変換して渡す
+                  ExcerciseVC.tappedBtnTag = sender as? Int
+              }
+          }
+      }
+    
+    
+    
+
+    
+    
+    
+    
+    
     
     
     
@@ -46,16 +74,16 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     //前ページからタイマーの数字持ってくる
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+/*    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toExerciseView" {
             let nextView = segue.destination as! ExerciseViewController
             nextView.argString = textField1.text!
         }
-    }
+    }*/
     //腹筋ボタンを押したら、次の画面のラベルに腹筋！
-    @IBAction func hukkin(_ sender: Any) {
+/*    @IBAction func hukkin(_ sender: Any) {
         self.performSegue(withIdentifier: "toExercise", sender: nil)
-    }
+    }*/
     @IBAction func neziri(_ sender: Any) {
         self.performSegue(withIdentifier: "toExercise", sender: nil)
     }
@@ -72,19 +100,15 @@ class ViewController: UIViewController {
         self.performSegue(withIdentifier: "toExercise", sender: nil)
     }
    
-    //Tagに番号をつけたことを宣言
-/*    enum actionTag: Int {
-        case action1 = 0
-        case action2 = 1
-        case action3 = 2
-        case action4 = 3
-        case action5 = 4
-        case action6 = 5
-    }
-    func buttonAction(_ sender: Any) {
-           let storyboard: UIStoryboard = self.storyboard!
-           let second = storyboard.instantiateViewController(withIdentifier: "second")
-           self.present(second, animated: true, completion: nil)
-       }*/
-    }
+   
 
+    }
+/*//Tagに番号をつけたことを宣言
+   enum actionTag: Int {
+       case action1 = 1
+       case action2 = 2
+       case action3 = 3
+       case action4 = 4
+       case action5 = 5
+       case action6 = 6
+   }*/
