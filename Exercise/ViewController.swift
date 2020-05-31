@@ -122,8 +122,8 @@ class ViewController: UIViewController {
     }
     @IBAction func sonota(_ sender: Any) {
         self.performSegue(withIdentifier: "toExercise", sender: nil)
-    }
-   */
+    }*/
+
    
 
     }

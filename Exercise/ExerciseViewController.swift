@@ -10,6 +10,8 @@ import UIKit
 
 class ExerciseViewController: UIViewController {
     
+
+    
     //0531sender.tagで変数の受け渡し
     // ここにタップされたボタンのタグが送られてくる
     var tappedBtnTag: Int?
@@ -105,6 +107,13 @@ class ExerciseViewController: UIViewController {
             timer.invalidate()
         }
     }
+    
+    
+    //完了ボタンでトップページに戻る
+    @IBAction func modoru() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 /*    //メニュー名表示
        func choiceMenu() {
         
