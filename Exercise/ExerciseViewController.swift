@@ -18,7 +18,7 @@ class ExerciseViewController: UIViewController {
 
     
     
-    //前ページからタイマーの数字持ってくる
+    //0601前ページからタイマーの数字持ってくる
     var argString = ""
     var menuString = ""
 
@@ -33,7 +33,7 @@ class ExerciseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        //前ページからタイマーの数字持ってくる
+        //0601前ページからタイマーの数字持ってくる
         //引数をラベルにセット
         TimerLabel.text = argString
         
@@ -85,15 +85,15 @@ class ExerciseViewController: UIViewController {
     
     @objc func up() {
         //countを0.01足す
-        count = count + 0.01
+        count = count + 0.1
         //ラベルに小数点以下2桁まで表示
-        TimerLabel.text = String(format: "%.2f", count)
+        TimerLabel.text = String(format: "%.1f", count)
     }
     
     @IBAction func start() {
         if !timer.isValid {
             //タイマーが動作していなかったら動かす
-            timer = Timer.scheduledTimer(timeInterval: 0.01,
+            timer = Timer.scheduledTimer(timeInterval: 0.1,
                                          target: self,
                                          selector: #selector(self.up),
                                          userInfo: nil,

@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    //前ページからタイマーの数字持ってくる
+    //0601前ページからタイマーの数字持ってくる
     @IBOutlet weak var textField1: UITextField!
 
     
@@ -78,6 +78,13 @@ class ViewController: UIViewController {
               if let ExcerciseVC = segue.destination as? ExerciseViewController {
                   //遷移先VCのプロパティにアクセス、senderで送られてきたタグをIntに変換して渡す
                   ExcerciseVC.tappedBtnTag = sender as? Int
+                
+            
+            //0601前ページからタイマーの数字持ってくる
+            //遷移先のViewControllerの取得
+            let nextView = segue.destination as! ExerciseViewController
+            //値の設定
+            nextView.argString = textField1.text!
               }
           }
       }
@@ -97,13 +104,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    //前ページからタイマーの数字持ってくる
-/*    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toExerciseView" {
-            let nextView = segue.destination as! ExerciseViewController
-            nextView.argString = textField1.text!
-        }
-    }*/
+
     //腹筋ボタンを押したら、次の画面のラベルに腹筋！
 /*    @IBAction func hukkin(_ sender: Any) {
         self.performSegue(withIdentifier: "toExercise", sender: nil)
