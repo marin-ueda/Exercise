@@ -84,7 +84,7 @@ class ViewController: UIViewController {
             //遷移先のViewControllerの取得
             let nextView = segue.destination as! ExerciseViewController
             //値の設定
-            nextView.argString = textField1.text!
+            nextView.arg = textField1.text!
               }
           }
       }

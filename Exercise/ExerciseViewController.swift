@@ -19,15 +19,27 @@ class ExerciseViewController: UIViewController {
     
     
     //0601前ページからタイマーの数字持ってくる
-    var argString = ""
+    var arg: String = ""
+//    var narg: Float = Float(arg)
+
+    
     var menuString = ""
 
     @IBOutlet var menuLabel: UILabel!
     @IBOutlet weak var TimerLabel: UILabel!
+    
+    //0601 StringをFloatに変換
 
-    var count: Float = 0.0
+    
+
+    var count: Float = 3.0
+    //0602追加タイマー
+    var count2: Float = 10.0
+
     
     var timer: Timer = Timer()
+    
+   
     
     
     override func viewDidLoad() {
@@ -35,7 +47,8 @@ class ExerciseViewController: UIViewController {
     
         //0601前ページからタイマーの数字持ってくる
         //引数をラベルにセット
-        TimerLabel.text = argString
+        TimerLabel.text = arg
+    
         
         //メニューラベルにメニュー名を表示させる動き
 //        menuLabel.text = menuString
@@ -57,7 +70,16 @@ class ExerciseViewController: UIViewController {
         // 取り合えすプリント、値が渡ってきていなければnil
            print("### tappedBtnTag:", tappedBtnTag as Any)
            menua()
-
+        
+        //0602自動的にスタート
+           start()
+           start2()
+        
+        //0になったら自動的にストップ
+/*        if count == 0 {
+           stop()
+        }*/
+     
         
     }
     func menua() {
@@ -83,35 +105,84 @@ class ExerciseViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    @objc func up() {
-        //countを0.01足す
-        count = count + 0.1
-        //ラベルに小数点以下2桁まで表示
-        TimerLabel.text = String(format: "%.1f", count)
+    @objc func down() {
+        if (count > 0) {
+            //countを0.1を引く
+            count = count - 0.1
+            //ラベルに小数点以下1桁まで表示
+            TimerLabel.text = String(format: "%.1f", count)
+        } else if (count < 0) {
+            //タイマーが動作していたら停止する
+//            timer.invalidate()
+            self.down2()
+        }
+        
+        
+    }
+    @objc func down2() {
+        if  (count <= 0) {
+            //countを0.1を引く
+            count2 = count2 - 0.1
+            //ラベルに小数点以下1桁まで表示
+            TimerLabel.text = String(format: "%.1f", count2)
+            
+        } else if (count2 <= 0) {
+            //タイマーが動作していたら停止する
+            timer.invalidate()
+            
+            TimerLabel.text = String("お疲れ様でした！")
+        }
+        
+        
     }
     
-    @IBAction func start() {
+    func start() {
         if !timer.isValid {
             //タイマーが動作していなかったら動かす
             timer = Timer.scheduledTimer(timeInterval: 0.1,
                                          target: self,
-                                         selector: #selector(self.up),
+                                         selector: #selector(self.down),
                                          userInfo: nil,
                                          repeats: true
             )
+
         }
     }
-    @IBAction func stop() {
+    func start2() {
+        if !timer.isValid {
+            //タイマーが動作していなかったら動かす
+            timer = Timer.scheduledTimer(timeInterval: 0.1,
+                                         target: self,
+                                         selector: #selector(self.down2),
+                                         userInfo: nil,
+                                         repeats: true
+            )
+
+        }
+    }
+/*    func stop() {
         if timer.isValid {
             //タイマーが動作していたら停止する
             timer.invalidate()
         }
-    }
+    }*/
     
     
     //完了ボタンでトップページに戻る
     @IBAction func modoru() {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    //0603タイマーの色を秒数によって変える
+    func textColor() {
+        if count2 <= 10 {
+            TimerLabel.textColor = UIColor.red
+        } else if count2 <= 3 {
+            TimerLabel.font = TimerLabel.font.withSize(30)
+        } else {
+            TimerLabel.textColor = UIColor.black
+        }
+        TimerLabel.text = String(count2)
     }
     
 /*    //メニュー名表示
@@ -143,15 +214,10 @@ class ExerciseViewController: UIViewController {
         
     }
     }*/
+    
+    
+    
 }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.*/
 
 
 
