@@ -19,8 +19,9 @@ class ExerciseViewController: UIViewController {
     
     
     //0601前ページからタイマーの数字持ってくる
-    var arg: String = ""
-//    var narg: Float = Float(arg)
+    var arg = ""
+    //0606 argを小数として使うために
+    var narg: Double!
 
     
     var menuString = ""
@@ -32,9 +33,7 @@ class ExerciseViewController: UIViewController {
 
     
 
-    var count: Float = 3
-    //0602追加タイマー
-    var count2: Float = 10.0
+    var count:  Double = 3
 
     
     var timer: Timer = Timer()
@@ -48,10 +47,11 @@ class ExerciseViewController: UIViewController {
         //0601前ページからタイマーの数字持ってくる
         //引数をラベルにセット
         TimerLabel.text = arg
-    
+        //0606　argを小数型に変換
+        narg = Double(arg)
         
-        //メニューラベルにメニュー名を表示させる動き
-//        menuLabel.text = menuString
+        
+
         
         //メニュー名を表示(Quizアプリ参照)
         var tmpArray = [Any]()
@@ -115,16 +115,17 @@ class ExerciseViewController: UIViewController {
             //タイマーが動作していたら停止する
 //            timer.invalidate()
             self.down2()
+            
         }
     }
     @objc func down2() {
             //countを0.1を引く
-        count2 = count2 - 0.1
+        narg = narg - 0.1
             //ラベルに小数点以下1桁まで表示
-            TimerLabel.text = String(format: "%.1f", count2)
+            TimerLabel.text = String(format: "%.1f", narg)
         self.textColor()
             
-        if (count2 <= 0) {
+        if (narg <= 0) {
             //タイマーが動作していたら停止する
             timer.invalidate()
             TimerLabel.font = TimerLabel.font.withSize(50)
@@ -132,6 +133,8 @@ class ExerciseViewController: UIViewController {
             TimerLabel.textColor = argba
             
             TimerLabel.text = String("Nice Fight!!")
+            count = 3
+            narg = Double(arg)
         }
     }
     func start() {
@@ -154,14 +157,6 @@ class ExerciseViewController: UIViewController {
                                          repeats: true)
         }
     }
-/*    func stop() {
-        if timer.isValid {
-            //タイマーが動作していたら停止する
-            timer.invalidate()
-        }
-    }*/
-    
-    
     //完了ボタンでトップページに戻る
     @IBAction func modoru() {
         self.dismiss(animated: true, completion: nil)
@@ -169,22 +164,22 @@ class ExerciseViewController: UIViewController {
     
     //0603タイマーの色を秒数によって変える
     func textColor() {
-        if count2 < 3.9 {
+        if narg < 3.9 {
             let rgba = UIColor(red: 1.0, green: 0.1, blue: 0.1, alpha: 1.0)
             TimerLabel.textColor = rgba
-            TimerLabel.font = TimerLabel.font.withSize(120)
+            TimerLabel.font = TimerLabel.font.withSize(130)
         } else {
             let argba = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
             TimerLabel.textColor = argba
-            TimerLabel.font = TimerLabel.font.withSize(80)
+            TimerLabel.font = TimerLabel.font.withSize(100)
         }
-        TimerLabel.text = String(count2)
-        TimerLabel.text = String(format: "%.1f", count2)
+        TimerLabel.text = String(narg)
+        TimerLabel.text = String(format: "%.1f", narg)
     }
     //0603もう一度ボタン入れたい
     @IBAction func retry() {
         self.start()
-        self.start2()
+        self.down()
     }
 /*    //メニュー名表示
        func choiceMenu() {

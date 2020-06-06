@@ -38,7 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		51ABBE162474C17900A5E739 /* Exercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		51ABBE162474C17900A5E739 /* まいトレ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "まいトレ.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		51ABBE192474C17900A5E739 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51ABBE1B2474C17900A5E739 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		51ABBE1D2474C17900A5E739 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 		51ABBE172474C17900A5E739 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				51ABBE162474C17900A5E739 /* Exercise.app */,
+				51ABBE162474C17900A5E739 /* まいトレ.app */,
 				51ABBE2C2474C17E00A5E739 /* ExerciseTests.xctest */,
 				51ABBE372474C17E00A5E739 /* ExerciseUITests.xctest */,
 			);
@@ -154,7 +154,7 @@
 			);
 			name = Exercise;
 			productName = Exercise;
-			productReference = 51ABBE162474C17900A5E739 /* Exercise.app */;
+			productReference = 51ABBE162474C17900A5E739 /* まいトレ.app */;
 			productType = "com.apple.product-type.application";
 		};
 		51ABBE2B2474C17E00A5E739 /* ExerciseTests */ = {
@@ -445,19 +445,19 @@
 		51ABBE412474C17E00A5E739 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEVELOPMENT_TEAM = 2K446D59RQ;
 				INFOPLIST_FILE = Exercise/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.maririn.ueda.Exercise;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "まいトレ";
 				PROVISIONING_PROFILE_SPECIFIER = "L12MarinUeda-Distribution";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -467,19 +467,19 @@
 		51ABBE422474C17E00A5E739 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEVELOPMENT_TEAM = 2K446D59RQ;
 				INFOPLIST_FILE = Exercise/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.maririn.ueda.Exercise;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "まいトレ";
 				PROVISIONING_PROFILE_SPECIFIER = "L12MarinUeda-Distribution";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

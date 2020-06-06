@@ -14,6 +14,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var textField1: UITextField!
 
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+    
+    
     @IBAction func KirokuButtonTapped() {
         let saveData = UserDefaults.standard
         if saveData.array(forKey: "WORD") != nil{
@@ -37,38 +43,77 @@ class ViewController: UIViewController {
         }
         
     }
+    
+    func alert() {
+        let alert = UIAlertController(
+            title: "記録",
+            message: "入力してください",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(
+            title: "OK!",
+            style: .default,
+            handler: nil
+        ))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
 
     //0531sender.tagで変数を作る
     // ボタンタップしてタグを取得、遷移する
     @IBAction func hukkin(_ sender: UIButton) {
+        if textField1.text == nil || textField1.text == ""  {
+            alert()
+        } else {
         let tagNumber = sender.tag
         // タグをsenderでprepareに送る
         self.performSegue(withIdentifier: "toExercise", sender: tagNumber)
+        }
     }
     @IBAction func neziri(_ sender: UIButton) {
+        if textField1.text == nil || textField1.text == ""  {
+            alert()
+        } else {
         let tagNumber = sender.tag
         // タグをsenderでprepareに送る
         self.performSegue(withIdentifier: "toExercise", sender: tagNumber)
+        }
     }
     @IBAction func takikan(_ sender: UIButton) {
+     if textField1.text == nil || textField1.text == ""  {
+            alert()
+        } else {
         let tagNumber = sender.tag
         // タグをsenderでprepareに送る
         self.performSegue(withIdentifier: "toExercise", sender: tagNumber)
+        }
     }
     @IBAction func sukuwatto(_ sender: UIButton) {
+        if textField1.text == nil || textField1.text == ""  {
+            alert()
+        } else {
         let tagNumber = sender.tag
         // タグをsenderでprepareに送る
         self.performSegue(withIdentifier: "toExercise", sender: tagNumber)
+        }
     }
     @IBAction func haikin(_ sender: UIButton) {
+        if textField1.text == nil || textField1.text == ""  {
+            alert()
+        } else {
         let tagNumber = sender.tag
         // タグをsenderでprepareに送る
         self.performSegue(withIdentifier: "toExercise", sender: tagNumber)
+        }
     }
     @IBAction func sonota(_ sender: UIButton) {
+        if textField1.text == nil || textField1.text == ""  {
+            alert()
+        } else {
         let tagNumber = sender.tag
         // タグをsenderでprepareに送る
         self.performSegue(withIdentifier: "toExercise", sender: tagNumber)
+        }
     }
 
       override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -86,24 +131,10 @@ class ViewController: UIViewController {
             //値の設定
             nextView.arg = textField1.text!
               }
+            
           }
       }
     
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
 
     //腹筋ボタンを押したら、次の画面のラベルに腹筋！
 /*    @IBAction func hukkin(_ sender: Any) {
