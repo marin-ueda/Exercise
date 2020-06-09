@@ -7,12 +7,39 @@
 //
 
 import UIKit
+import RealmSwift
 
 class KirokuTableViewController: UITableViewController {
+    let realm = try! Realm()
+       let kiroku = try! Realm().objects(Kiroku.self).sorted(byKeyPath: "seconds")
+       var notificationToken: NotificationToken?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        
+        notificationToken = kiroku.observe { [weak self] _ in
+        self?.tableView.reloadData()
+        }
     }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return kiroku.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! KirokuTableViewCell
+        cell.secondsLabel.text = String(kiroku[indexPath.row].seconds * Double(kaisu))
+        return cell
+    }
+    
+    @IBAction func cancel() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
 
     }

@@ -16,8 +16,6 @@ class ExerciseViewController: UIViewController {
     // ここにタップされたボタンのタグが送られてくる
     var tappedBtnTag: Int?
 
-    
-    
     //0601前ページからタイマーの数字持ってくる
     var arg = ""
     //0606 argを小数として使うために
@@ -33,11 +31,11 @@ class ExerciseViewController: UIViewController {
 
     
 
-    var count:  Double = 3
+    var count: Double = 3
 
-    
     var timer: Timer = Timer()
     
+
    
     
     
@@ -50,8 +48,6 @@ class ExerciseViewController: UIViewController {
         //0606　argを小数型に変換
         narg = Double(arg)
         
-        
-
         
         //メニュー名を表示(Quizアプリ参照)
         var tmpArray = [Any]()
@@ -131,12 +127,13 @@ class ExerciseViewController: UIViewController {
             TimerLabel.font = TimerLabel.font.withSize(50)
             let argba = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
             TimerLabel.textColor = argba
-            
             TimerLabel.text = String("Nice Fight!!")
+            kaisu = kaisu + 1
             count = 3
             narg = Double(arg)
         }
     }
+    
     func start() {
         if !timer.isValid {
             //タイマーが動作していなかったら動かす
@@ -181,39 +178,12 @@ class ExerciseViewController: UIViewController {
         self.start()
         self.down()
     }
-/*    //メニュー名表示
-       func choiceMenu() {
-        
-      //メニュー名を表示(Quizアプリ参照)
-        var tmpArray = sender.tag[] {
-            
-            if menuArray == 1 {
-                   menuLabel.text = "腹筋"
-            }
-            if menuArray == 2 {
-                   menuLabel.text = "ねじり"
-            }
-            if menuArray == 3 {
-                   menuLabel.text = "体幹"
-            }
-            if menuArray == 4  {
-                   menuLabel.text = "スクワット"
-            }
-            if menuArray == 5 {
-                   menuLabel.text = "背筋"
-            }
-            if menuArray == 6 {
-                   menuLabel.text = "その他"
-               }
-           }
-    func choiceAnswer(sender: UIButton) {
-        
-    }
-    }*/
+
     
     
     
 }
-
+//0608 1日のタイマー稼働回数
+    var kaisu: Int = 0
 
 

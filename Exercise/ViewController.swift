@@ -7,29 +7,34 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController {
     
     //0601前ページからタイマーの数字持ってくる
     @IBOutlet weak var textField1: UITextField!
+    
+    //0608Realm入れてみる
+    let realm = try! Realm()
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        //0608Realm入れてみる
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
     
     
     @IBAction func KirokuButtonTapped() {
-        let saveData = UserDefaults.standard
-        if saveData.array(forKey: "WORD") != nil{
-            if saveData.array(forKey: "WORD")!.count > 0 {
-                performSegue(withIdentifier: "toKirokuTableView", sender: nil)
+        _ = UserDefaults.standard
+        if kaisu != 0 {
+            if kaisu > 0 {
+                performSegue(withIdentifier: "toKirokuTableViewController", sender: nil)
             }
-            
         } else {
             let alert = UIAlertController(
-                title: "記録",
+                title: "アナウンス",
                 message: "トレーニングが終了すると、見ることができます",
                 preferredStyle: .alert
             )
@@ -46,8 +51,8 @@ class ViewController: UIViewController {
     
     func alert() {
         let alert = UIAlertController(
-            title: "記録",
-            message: "入力してください",
+            title: "アナウンス",
+            message: "秒数を入力してください",
             preferredStyle: .alert
         )
         alert.addAction(UIAlertAction(
@@ -133,7 +138,17 @@ class ViewController: UIViewController {
               }
             
           }
+        
       }
+    //0608Realmを入れてみる(変えるのはここか？？日付入れる、合計秒数にする）
+    func addKiroku() {
+       let newkiroku = Kiroku()
+        newkiroku.seconds = Double(textField1.text!)!
+        
+        try! realm.write {
+            realm.add(newkiroku)
+        }
+    }
     
 
     //腹筋ボタンを押したら、次の画面のラベルに腹筋！

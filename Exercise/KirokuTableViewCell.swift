@@ -9,7 +9,6 @@
 import UIKit
 
 class KirokuTableViewCell: UITableViewCell {
-    
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var secondsLabel: UILabel!    
 

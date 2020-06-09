@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Exercise
+//@testable import Exercise
 
 class ExerciseTests: XCTestCase {
 
