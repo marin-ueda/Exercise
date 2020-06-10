@@ -11,20 +11,41 @@ import RealmSwift
 
 class KirokuTableViewController: UITableViewController {
     let realm = try! Realm()
+
        let kiroku = try! Realm().objects(Kiroku.self).sorted(byKeyPath: "seconds")
        var notificationToken: NotificationToken?
+    
 
+    
+    //0609日付情報取得
+    // 現在日時を取得
+/*    let dt = Date()
+    let formatter: DateFormatter = DateFormatter()*/
+
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         
         print(Realm.Configuration.defaultConfiguration.fileURL!)
-        
+        //Realmの更新があったらすぐに反映
         notificationToken = kiroku.observe { [weak self] _ in
         self?.tableView.reloadData()
         }
+        
     }
+    
+
+ /*   //日付入れてみた
+    func hiniti() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yMdkHms", options: 0, locale: Locale(identifier: "ja_JP"))
+
+
+    }*/
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return kiroku.count
@@ -33,8 +54,22 @@ class KirokuTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! KirokuTableViewCell
         cell.secondsLabel.text = String(kiroku[indexPath.row].seconds * Double(kaisu))
+
+        //0609日付入れてみた
+        // ロケールをアメリカ（英語）に設定
+/*        formatter.locale = Locale(identifier: "en_US")
+        formatter.dateStyle = .short
+        print(formatter.string(from: dt))*/
+        
+//        cell.dateLabel.text = Date(print(formatter.string(from: dt)))
         return cell
     }
+//    formatter.dateStyle = .medium
+
+
+
+   
+
     
     @IBAction func cancel() {
         self.dismiss(animated: true, completion: nil)

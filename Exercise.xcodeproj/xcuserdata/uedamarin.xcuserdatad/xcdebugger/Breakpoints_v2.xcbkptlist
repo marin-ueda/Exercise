@@ -30,10 +30,73 @@
             filePath = "Exercise/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "ViewController"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FA37ECF9-6491-4B59-AEA7-F3C4A2510119"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Exercise/KirokuTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "KirokuTableViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "FA37ECF9-6491-4B59-AEA7-F3C4A2510119 - 6c3c9adaad84bfd7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "&#x307e;&#x3044;&#x30c8;&#x30ec;.KirokuTableViewController.init(style: __C.UITableViewStyle) -&gt; &#x307e;&#x3044;&#x30c8;&#x30ec;.KirokuTableViewController"
+                  moduleName = "&#x307e;&#x3044;&#x30c8;&#x30ec;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uedamarin/Desktop/iPhone%E3%82%B3%E3%83%BC%E3%82%B9/lifeistech/Exercise/Exercise/KirokuTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "810">
+               </Location>
+               <Location
+                  uuid = "FA37ECF9-6491-4B59-AEA7-F3C4A2510119 - d0471098bab9e7d9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "&#x307e;&#x3044;&#x30c8;&#x30ec;.KirokuTableViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; &#x307e;&#x3044;&#x30c8;&#x30ec;.KirokuTableViewController"
+                  moduleName = "&#x307e;&#x3044;&#x30c8;&#x30ec;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uedamarin/Desktop/iPhone%E3%82%B3%E3%83%BC%E3%82%B9/lifeistech/Exercise/Exercise/KirokuTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "830">
+               </Location>
+               <Location
+                  uuid = "FA37ECF9-6491-4B59-AEA7-F3C4A2510119 - 34659e4ce5e18ce2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "&#x307e;&#x3044;&#x30c8;&#x30ec;.KirokuTableViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;&#x307e;&#x3044;&#x30c8;&#x30ec;.KirokuTableViewController&gt;"
+                  moduleName = "&#x307e;&#x3044;&#x30c8;&#x30ec;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uedamarin/Desktop/iPhone%E3%82%B3%E3%83%BC%E3%82%B9/lifeistech/Exercise/Exercise/KirokuTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "777">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

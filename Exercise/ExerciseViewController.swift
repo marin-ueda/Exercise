@@ -7,10 +7,16 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ExerciseViewController: UIViewController {
     
+    //0608Realm入れてみる
+    let realm = try! Realm()
 
+    //0610new 日付をRealmに
+    let dt = Date()
+    let dateFormatter = DateFormatter()
     
     //0531sender.tagで変数の受け渡し
     // ここにタップされたボタンのタグが送られてくる
@@ -26,16 +32,45 @@ class ExerciseViewController: UIViewController {
 
     @IBOutlet var menuLabel: UILabel!
     @IBOutlet weak var TimerLabel: UILabel!
-    
-    //0601 StringをFloatに変換
-
-    
 
     var count: Double = 3
-
     var timer: Timer = Timer()
     
+    //0609日付情報取得
+    // 現在日時を取得
+/*    let dt = Date()
+    let formatter: DateFormatter = DateFormatter()*/
+    
+    //0610 日付リベンジ！
+/*    lazy var dateFormatter: DateFormatter = {
+        var formatter = DateFormatter()
+        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "ydMMM",
+                                                        options: 0,
+                                                        locale: Locale(identifier: "ja_JP"))
+        formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+        return formatter
+    }()*/
+    
 
+    
+      //0608Realmを入れてみる(変えるのはここか？？日付入れる、合計秒数にする）
+      func addKiroku() {
+         let newkiroku = Kiroku()
+          newkiroku.seconds = narg!
+/*          formatter.dateStyle = .short
+          newkiroku.hiniti = String()*/
+
+        //0610new 日付をRealmに
+        // DateFormatter を使用して書式とロケールを指定する
+        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yMMMdHms", options: 0, locale: Locale(identifier: "ja_JP"))
+        print(dateFormatter.string(from: dt))
+        newkiroku.hiniti = dateFormatter.string(from: dt)
+          
+          try! realm.write {
+              realm.add(newkiroku)
+          }
+      }
+    
    
     
     
@@ -47,6 +82,9 @@ class ExerciseViewController: UIViewController {
         TimerLabel.text = arg
         //0606　argを小数型に変換
         narg = Double(arg)
+        
+        //0608Realm入れてみる
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         
         //メニュー名を表示(Quizアプリ参照)
@@ -131,6 +169,7 @@ class ExerciseViewController: UIViewController {
             kaisu = kaisu + 1
             count = 3
             narg = Double(arg)
+            addKiroku()
         }
     }
     

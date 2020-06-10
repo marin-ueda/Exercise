@@ -13,6 +13,10 @@ class ViewController: UIViewController {
     
     //0601前ページからタイマーの数字持ってくる
     @IBOutlet weak var textField1: UITextField!
+/*    //Datepiker入れてみた
+    @IBOutlet var datePiker: UIDatePicker!*/
+  
+
     
     //0608Realm入れてみる
     let realm = try! Realm()
@@ -28,13 +32,20 @@ class ViewController: UIViewController {
     
     @IBAction func KirokuButtonTapped() {
         _ = UserDefaults.standard
-        if kaisu != 0 {
+/*        //0610 日付
+          let dateFormater = DateFormatter()
+             dateFormater.locale = Locale(identifier: "ja_JP")
+             dateFormater.dateFormat = "yyyy/MM/dd HH:mm:ss"
+             let date = dateFormater.string(from: Date())
+             print(date)     // 2017/04/04 10:44:31*/
+        if kaisu != 0
+        {
             if kaisu > 0 {
                 performSegue(withIdentifier: "toKirokuTableViewController", sender: nil)
             }
         } else {
             let alert = UIAlertController(
-                title: "アナウンス",
+                title: "",
                 message: "トレーニングが終了すると、見ることができます",
                 preferredStyle: .alert
             )
@@ -140,16 +151,7 @@ class ViewController: UIViewController {
           }
         
       }
-    //0608Realmを入れてみる(変えるのはここか？？日付入れる、合計秒数にする）
-    func addKiroku() {
-       let newkiroku = Kiroku()
-        newkiroku.seconds = Double(textField1.text!)!
-        
-        try! realm.write {
-            realm.add(newkiroku)
-        }
-    }
-    
+  
 
     //腹筋ボタンを押したら、次の画面のラベルに腹筋！
 /*    @IBAction func hukkin(_ sender: Any) {
@@ -183,3 +185,4 @@ class ViewController: UIViewController {
        case action5 = 5
        case action6 = 6
    }*/
+

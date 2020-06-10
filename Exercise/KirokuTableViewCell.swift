@@ -10,7 +10,10 @@ import UIKit
 
 class KirokuTableViewCell: UITableViewCell {
     @IBOutlet var dateLabel: UILabel!
-    @IBOutlet var secondsLabel: UILabel!    
+    @IBOutlet var secondsLabel: UILabel!
+    
+    
+
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,5 +25,4 @@ class KirokuTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }
