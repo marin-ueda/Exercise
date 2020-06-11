@@ -17,6 +17,6 @@ class Kiroku: Object {
 //    dynamic var value: Date? = nil
     //0610 日付のために追加
     override static func primaryKey() -> String? {
-        return "date"
-    }
+        return "hiniti"
+     }
 }
