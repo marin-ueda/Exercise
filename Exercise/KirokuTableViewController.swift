@@ -12,7 +12,7 @@ import RealmSwift
 class KirokuTableViewController: UITableViewController {
     let realm = try! Realm()
 
-       let kiroku = try! Realm().objects(Kiroku.self).sorted(byKeyPath: "seconds")
+       let kiroku = try! Realm().objects(Kiroku.self).sorted(byKeyPath: "hiniti")
        var notificationToken: NotificationToken?
     
 
@@ -53,7 +53,7 @@ class KirokuTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! KirokuTableViewCell
-        cell.secondsLabel.text = String(kiroku[indexPath.row].seconds * Double(kaisu))
+        cell.secondsLabel.text = String(kiroku[indexPath.row].seconds)
 
         //0609日付入れてみた
         // ロケールをアメリカ（英語）に設定
@@ -61,7 +61,7 @@ class KirokuTableViewController: UITableViewController {
         formatter.dateStyle = .short
         print(formatter.string(from: dt))*/
         
-//        cell.dateLabel.text = Date(print(formatter.string(from: dt)))
+        cell.dateLabel.text = String(kiroku[indexPath.row].hiniti)
         return cell
     }
 //    formatter.dateStyle = .medium

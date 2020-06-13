@@ -8,12 +8,16 @@
 
 import UIKit
 import RealmSwift
+import AVFoundation
 
-class ExerciseViewController: UIViewController {
+class ExerciseViewController: UIViewController, AVAudioPlayerDelegate {
+    
+    //0613 音楽入れる
+    var audioPlayer:AVAudioPlayer!
     
     //0608Realm入れてみる
     let realm = try! Realm()
-
+    
     //0610new 日付をRealmに
     let dt = Date()
     let dateFormatter = DateFormatter()
@@ -21,62 +25,92 @@ class ExerciseViewController: UIViewController {
     //0531sender.tagで変数の受け渡し
     // ここにタップされたボタンのタグが送られてくる
     var tappedBtnTag: Int?
-
+    
     //0601前ページからタイマーの数字持ってくる
     var arg = ""
     //0606 argを小数として使うために
     var narg: Double!
-
+    
     
     var menuString = ""
-
+    
     @IBOutlet var menuLabel: UILabel!
     @IBOutlet weak var TimerLabel: UILabel!
-
+    
     var count: Double = 3
     var timer: Timer = Timer()
     
     //0609日付情報取得
     // 現在日時を取得
-/*    let dt = Date()
-    let formatter: DateFormatter = DateFormatter()*/
+    /*    let dt = Date()
+     let formatter: DateFormatter = DateFormatter()*/
     
     //0610 日付リベンジ！
-/*    lazy var dateFormatter: DateFormatter = {
-        var formatter = DateFormatter()
-        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "ydMMM",
-                                                        options: 0,
-                                                        locale: Locale(identifier: "ja_JP"))
-        formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
-        return formatter
-    }()*/
+    /*    lazy var dateFormatter: DateFormatter = {
+     var formatter = DateFormatter()
+     formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "ydMMM",
+     options: 0,
+     locale: Locale(identifier: "ja_JP"))
+     formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+     return formatter
+     }()*/
     
-
     
-      //0608Realmを入れてみる(変えるのはここか？？日付入れる、合計秒数にする）
-      func addKiroku() {
-         let newkiroku = Kiroku()
-          newkiroku.seconds = narg!
-/*          formatter.dateStyle = .short
-          newkiroku.hiniti = String()*/
-
+    
+    //0608Realmを入れてみる(変えるのはここか？？日付入れる、合計秒数にする）
+    func addKiroku() {
+        let newkiroku = Kiroku()
+        newkiroku.seconds = narg!
         //0610new 日付をRealmに
         // DateFormatter を使用して書式とロケールを指定する
-        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yMMMdHms", options: 0, locale: Locale(identifier: "ja_JP"))
-        print(dateFormatter.string(from: dt))
+        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yMMMd", options: 0, locale: Locale(identifier: "ja_JP"))
+        //        print(dateFormatter.string(from: dt))
         newkiroku.hiniti = dateFormatter.string(from: dt)
-          
-          try! realm.write {
-              realm.add(newkiroku)
-          }
-      }
+        
+        //0612もし日付が同じだったら、秒数のところだけを更新
+        //0612 オブジェクトの取得
+        let kaburi = NSPredicate(format: "hiniti == %@", dateFormatter.string(from: dt))
+        let results = realm.objects(Kiroku.self).filter(kaburi)
+        
+        //0612 日にちがかぶっていたら
+        if let newkiroku = results.first {  //PCは何個かのデータが入っているとみなしているから、一番最初のデータという設定をする必要あり。
+            try! realm.write() {
+                newkiroku.seconds = narg + newkiroku.seconds
+            }
+        } else {
+            try! realm.write {
+                realm.add(newkiroku/*, update: .all*/)
+            }
+        }
+    }
     
-   
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        //0613 音入れる
+        // 再生する audio ファイルのパスを取得
+        let audioPath = Bundle.main.path(forResource: "sound36", ofType:"mp3")!
+        let audioUrl = URL(fileURLWithPath: audioPath)
+        // auido を再生するプレイヤーを作成する
+        var audioError:NSError?
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: audioUrl)
+        } catch let error as NSError {
+            audioError = error
+            audioPlayer = nil
+        }
+        
+        // エラーが起きたとき
+        if let error = audioError {
+            print("Error \(error.localizedDescription)")
+        }
+        
+        audioPlayer.delegate = self
+        audioPlayer.prepareToPlay()
+        
         //0601前ページからタイマーの数字持ってくる
         //引数をラベルにセット
         TimerLabel.text = arg
@@ -98,22 +132,18 @@ class ExerciseViewController: UIViewController {
         tmpArray.append(["背筋"])
         tmpArray.append(["その他"])
         
- //       choiceMenu()
+        //       choiceMenu()
         
         //0531sender.tagで変数の受け渡し
         // 取り合えすプリント、値が渡ってきていなければnil
-           print("### tappedBtnTag:", tappedBtnTag as Any)
-           menua()
+        print("### tappedBtnTag:", tappedBtnTag as Any)
+        menua()
         
         //0602自動的にスタート
-           start()
-           start2()
+        start()
+        start2()
         
-        //0になったら自動的にストップ
-/*        if count == 0 {
-           stop()
-        }*/
-     
+        
         
     }
     func menua() {
@@ -134,31 +164,31 @@ class ExerciseViewController: UIViewController {
     
     
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
     @objc func down() {
-            //countを0.1を引く
+        //countを0.1を引く
         count = count - 0.1
-            //ラベルに小数点以下1桁まで表示
-            TimerLabel.text = String(format: "%.0f", count)
+        //ラベルに小数点以下1桁まで表示
+        TimerLabel.text = String(format: "%.0f", count)
         if (count < 0.5) {
-            TimerLabel.text = String("START")
+            //            TimerLabel.text = String("START")
             //タイマーが動作していたら停止する
-//            timer.invalidate()
+            //            timer.invalidate()
             self.down2()
             
         }
     }
     @objc func down2() {
-            //countを0.1を引く
+        //countを0.1を引く
         narg = narg - 0.1
-            //ラベルに小数点以下1桁まで表示
-            TimerLabel.text = String(format: "%.1f", narg)
+        //ラベルに小数点以下1桁まで表示
+        TimerLabel.text = String(format: "%.1f", narg)
         self.textColor()
-            
+        
         if (narg <= 0) {
             //タイマーが動作していたら停止する
             timer.invalidate()
@@ -166,10 +196,10 @@ class ExerciseViewController: UIViewController {
             let argba = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
             TimerLabel.textColor = argba
             TimerLabel.text = String("Nice Fight!!")
-            kaisu = kaisu + 1
             count = 3
             narg = Double(arg)
             addKiroku()
+            audioPlayer.play()
         }
     }
     
@@ -216,13 +246,13 @@ class ExerciseViewController: UIViewController {
     @IBAction func retry() {
         self.start()
         self.down()
+        
     }
-
+    
     
     
     
 }
-//0608 1日のタイマー稼働回数
-    var kaisu: Int = 0
+
 
 

@@ -15,20 +15,89 @@ class ViewController: UIViewController {
     @IBOutlet weak var textField1: UITextField!
 /*    //Datepiker入れてみた
     @IBOutlet var datePiker: UIDatePicker!*/
-  
-
     
+    @IBOutlet var pointLabel: UILabel!
+    @IBOutlet var nissuLabel: UILabel!
+    
+    //0613 再：日付をRealmに
+    let dt = Date()
+    let dateFormatter = DateFormatter()
+    
+    //合計日数のための関数
+    var hi: Int = 0
+  
     //0608Realm入れてみる
     let realm = try! Realm()
-
+    let kiroku = try! Realm().objects(Kiroku.self).sorted(byKeyPath: "hiniti")
+    var notificationToken: NotificationToken?
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //0608Realm入れてみる
         print(Realm.Configuration.defaultConfiguration.fileURL!)
+        //0613　改：Realmの更新があったらすぐに反映
+        notificationToken = kiroku.observe { [weak self] _ in
+        self?.Points()
+        }
+        
+        //0613 ここ入れる！
+        
+        
+        Points()
+//        nissu()
     }
     
+
+    //0613 キーボードをreturnで閉じる
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // キーボードを閉じる
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    //0613 point入れる！
+    func Points() {
+        let point = realm.objects(Kiroku.self)
+        let summ: Int = point.sum(ofProperty: "seconds")
+        pointLabel.text = String(summ)
+    }
+    //0613 合計日数
+    func goukei() {
+           let gou = realm.objects(Kiroku.self)
+           let sum: Int = gou.count
+           nissuLabel.text = String(sum)
+       }
+    
+/*    //0613 連続する日数を出す!!
+    func nissu() {
+//   let f = DateFormatter()
+//    f.dateStyle = .medium
+//    f.locale = Locale(identifier: "ja_JP")
+    let now = Date()
+//    print(f.string(from: now))
+    
+    var calendar = Calendar.current
+    let day = calendar.component(.day, from: now)
+    
+    let components = calendar.dateComponents([.day],
+                                                 from: fromDate,
+                                                 to: now)
+    let passTime = components.day!
+        if passTime <= 1 {
+            hi += 1
+        } else {
+            hi = 0
+        }
+        nissuLabel.text = String(hi)
+        
+    }*/
     
     @IBAction func KirokuButtonTapped() {
         _ = UserDefaults.standard
@@ -38,11 +107,13 @@ class ViewController: UIViewController {
              dateFormater.dateFormat = "yyyy/MM/dd HH:mm:ss"
              let date = dateFormater.string(from: Date())
              print(date)     // 2017/04/04 10:44:31*/
-        if kaisu != 0
-        {
-            if kaisu > 0 {
-                performSegue(withIdentifier: "toKirokuTableViewController", sender: nil)
-            }
+        // Realmのオブジェクトを取得
+        let kosuu = realm.objects(Kiroku.self)
+        //0613 Realmに入っているデータの個数
+//        print("kosuu.count: \(kosuu.count)")
+        
+        if kosuu.count != 0 {
+            performSegue(withIdentifier: "toKirokuTableViewController", sender: nil)
         } else {
             let alert = UIAlertController(
                 title: "",
