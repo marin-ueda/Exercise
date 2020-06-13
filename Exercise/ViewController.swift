@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     
     @IBOutlet var pointLabel: UILabel!
     @IBOutlet var nissuLabel: UILabel!
+    @IBOutlet var pointhaikei: UILabel!
     
     //0613 再：日付をRealmに
     let dt = Date()
@@ -31,6 +32,15 @@ class ViewController: UIViewController {
     let kiroku = try! Realm().objects(Kiroku.self).sorted(byKeyPath: "hiniti")
     var notificationToken: NotificationToken?
     
+    //0613 ボタンの角を丸くする
+    @IBOutlet weak var hukkin: UIButton!
+    @IBOutlet weak var neziri: UIButton!
+    @IBOutlet weak var sukuwatto: UIButton!
+    @IBOutlet weak var taikan: UIButton!
+    @IBOutlet weak var sonota: UIButton!
+    @IBOutlet weak var haikin: UIButton!
+    
+    
     
     
     override func viewDidLoad() {
@@ -41,6 +51,31 @@ class ViewController: UIViewController {
         //0613　改：Realmの更新があったらすぐに反映
         notificationToken = kiroku.observe { [weak self] _ in
         self?.Points()
+            
+        //0613 ボタンの角を丸くする
+        self?.hukkin.layer.cornerRadius = 12.0
+        self?.neziri.layer.cornerRadius = 12.0
+        self?.sukuwatto.layer.cornerRadius = 12.0
+        self?.taikan.layer.cornerRadius = 12.0
+        self?.sonota.layer.cornerRadius = 12.0
+        self?.haikin.layer.cornerRadius = 12.0
+        self?.nissuLabel.layer.cornerRadius = 10.0
+        self?.pointhaikei.layer.cornerRadius = 10.0
+            //外枠の色を指定
+/*            self?.hukkin.layer.borderColor = UIColor.cyan.cgColor
+            self?.neziri.layer.borderColor = UIColor.cyan.cgColor
+            self?.sukuwatto.layer.borderColor = UIColor.cyan.cgColor
+            self?.taikan.layer.borderColor = UIColor.cyan.cgColor
+            self?.haikin.layer.borderColor = UIColor.cyan.cgColor
+            self?.sonota.layer.borderColor = UIColor.cyan.cgColor
+             
+            //外枠の太さを指定
+            self?.hukkin.layer.borderWidth = 7.0
+            self?.neziri.layer.borderWidth = 7.0
+            self?.sukuwatto.layer.borderWidth = 7.0
+            self?.taikan.layer.borderWidth = 7.0
+            self?.haikin.layer.borderWidth = 7.0
+            self?.sonota.layer.borderWidth = 7.0*/
         }
         
         //0613 ここ入れる！
@@ -166,7 +201,7 @@ class ViewController: UIViewController {
         self.performSegue(withIdentifier: "toExercise", sender: tagNumber)
         }
     }
-    @IBAction func takikan(_ sender: UIButton) {
+    @IBAction func taikan(_ sender: UIButton) {
      if textField1.text == nil || textField1.text == ""  {
             alert()
         } else {
