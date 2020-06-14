@@ -82,6 +82,7 @@ class ViewController: UIViewController {
         
         
         Points()
+        goukei()
 //        nissu()
     }
     
@@ -107,7 +108,9 @@ class ViewController: UIViewController {
     func goukei() {
            let gou = realm.objects(Kiroku.self)
            let sum: Int = gou.count
-           nissuLabel.text = String(sum)
+
+            nissuLabel.text = String("Day \(sum)")
+
        }
     
 /*    //0613 連続する日数を出す!!

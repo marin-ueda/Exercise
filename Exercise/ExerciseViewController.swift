@@ -12,6 +12,11 @@ import AVFoundation
 
 class ExerciseViewController: UIViewController, AVAudioPlayerDelegate {
     
+    //0614 メッセージ入れる
+    @IBOutlet var img: UIImageView!
+    @IBOutlet var hukidasi: UIImageView!
+    @IBOutlet var serihuLabel: UILabel!
+    
     //0613 音楽入れる
     var audioPlayer:AVAudioPlayer!
     
@@ -63,7 +68,11 @@ class ExerciseViewController: UIViewController, AVAudioPlayerDelegate {
         newkiroku.seconds = narg!
         //0610new 日付をRealmに
         // DateFormatter を使用して書式とロケールを指定する
-        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yMMMd", options: 0, locale: Locale(identifier: "ja_JP"))
+//        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yMMMd", options: 0, locale: Locale(identifier: "en_US_POSIX"))
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier: "ja_JP")
+//        dateFormatter.doesRelativeDateFormatting = true
         //        print(dateFormatter.string(from: dt))
         newkiroku.hiniti = dateFormatter.string(from: dt)
         
@@ -143,6 +152,7 @@ class ExerciseViewController: UIViewController, AVAudioPlayerDelegate {
         start()
         start2()
         
+        messege()
         
         
     }
@@ -150,18 +160,30 @@ class ExerciseViewController: UIViewController, AVAudioPlayerDelegate {
         if tappedBtnTag == 1 {
             menuLabel.text = String("腹筋")
         } else if tappedBtnTag == 2 {
-            menuLabel.text = String("ねじり")
+            menuLabel.text = String("背筋")
         } else if tappedBtnTag == 3 {
-            menuLabel.text = String("体幹")
+            menuLabel.text = String("足パカ")
         } else if tappedBtnTag == 4 {
             menuLabel.text = String("スクワット")
         } else if tappedBtnTag == 5 {
-            menuLabel.text = String("背筋")
+            menuLabel.text = String("体幹")
         } else if tappedBtnTag == 6 {
-            menuLabel.text = String("その他のトレーニング")
+            menuLabel.text = String("ストレッチ")
         }
     }
     
+    //0614 メッセージ入れる
+    func messege() {
+        let serihu:[String] = ["その調子！その調子！", "できてるよ！頑張れ〜", "ファイトー！", "筋肉意識してね。", "呼吸大事だよ！", "息吸ってーはいてー", "肩の力抜いて！", "運動している君は偉い！", "毎日頑張ろう！", "明日もっと美しく！", "ナイスファイト", "もっといける！", "続ける事が大事！", "コツコツ頑張ろう！", "憧れに近づいてるよ！"]
+        let nu = arc4random_uniform(UInt32(serihu.count))
+
+        serihuLabel.text = serihu[Int(nu)]
+    }
+    func nonmessege() {
+        serihuLabel.text = ""
+        hukidasi.image = nil
+        img.image = nil
+    }
     
     
     
@@ -200,6 +222,7 @@ class ExerciseViewController: UIViewController, AVAudioPlayerDelegate {
             narg = Double(arg)
             addKiroku()
             audioPlayer.play()
+            nonmessege()
         }
     }
     
