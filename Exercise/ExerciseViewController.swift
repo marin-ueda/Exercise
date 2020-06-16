@@ -196,13 +196,13 @@ class ExerciseViewController: UIViewController, AVAudioPlayerDelegate {
         let serihu:[String] = ["その調子！その調子！", "頑張れ〜!", "ファイトー！", "筋肉意識してね。", "呼吸大事だよ！", "息吸ってーはいてー", "肩の力抜いて！", "運動している君は偉い！", "毎日頑張ろう！", "明日もっと美しく！", "ナイスファイト", "もっといける！", "続ける事が大事！", "コツコツ頑張ろう！", "憧れに近づいてるよ！", "やればできる！", "目指せ10000ポイント！"]
 
 
-        if summ >= 180 && summ <= 30000 {
+        if summ >= 20000 && summ < 30000 {
             let ii:[UIImage?] = [img1, img2, img3, img4, img5, img6, img7]
             view.backgroundColor = UIColor.init(red: 255/255, green: 249/255, blue: 128/255, alpha: 1)
             let nu = arc4random_uniform(UInt32(ii.count))
             image.image = ii[Int(nu)]
 
-        } else if summ >= 150 {
+        } else if summ >= 10000 {
             let iii:[UIImage?] = [img4, img6, img3]
             view.backgroundColor = UIColor.init(red: 227/255, green: 219/255, blue: 255/255, alpha: 1)
             let nu = arc4random_uniform(UInt32(iii.count))
