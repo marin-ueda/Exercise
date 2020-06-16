@@ -83,5 +83,68 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1F9D6C96-4753-4F24-B78C-658C79925692"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Exercise/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "1F9D6C96-4753-4F24-B78C-658C79925692 - 55bd08a0934e3aaa"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "&#x307e;&#x3044;&#x30c8;&#x30ec;.ViewController.saveData.getter : __C.NSUserDefaults"
+                  moduleName = "&#x307e;&#x3044;&#x30c8;&#x30ec;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uedamarin/Desktop/iPhone%E3%82%B3%E3%83%BC%E3%82%B9/lifeistech/Exercise/Exercise/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "1F9D6C96-4753-4F24-B78C-658C79925692 - 66d2278e110f4b7f"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "&#x307e;&#x3044;&#x30c8;&#x30ec;.ViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; &#x307e;&#x3044;&#x30c8;&#x30ec;.ViewController"
+                  moduleName = "&#x307e;&#x3044;&#x30c8;&#x30ec;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uedamarin/Desktop/iPhone%E3%82%B3%E3%83%BC%E3%82%B9/lifeistech/Exercise/Exercise/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "1096">
+               </Location>
+               <Location
+                  uuid = "1F9D6C96-4753-4F24-B78C-658C79925692 - bdc4252808c6b70"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "&#x307e;&#x3044;&#x30c8;&#x30ec;.ViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;&#x307e;&#x3044;&#x30c8;&#x30ec;.ViewController&gt;"
+                  moduleName = "&#x307e;&#x3044;&#x30c8;&#x30ec;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uedamarin/Desktop/iPhone%E3%82%B3%E3%83%BC%E3%82%B9/lifeistech/Exercise/Exercise/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "1049">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

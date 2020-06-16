@@ -10,11 +10,19 @@
 		5142BB6C248E495100C24EE3 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 5142BB6B248E495100C24EE3 /* Realm */; };
 		5142BB6E248E495100C24EE3 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5142BB6D248E495100C24EE3 /* RealmSwift */; };
 		5142BB70248E4AC800C24EE3 /* Kiroku.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5142BB6F248E4AC800C24EE3 /* Kiroku.swift */; };
-		51872CF224951FFB0068193F /* point.png in Resources */ = {isa = PBXBuildFile; fileRef = 51872CF124951FFA0068193F /* point.png */; };
-		51872CF6249524260068193F /* point3.png in Resources */ = {isa = PBXBuildFile; fileRef = 51872CF5249524260068193F /* point3.png */; };
 		51872CFA2495D64A0068193F /* 吹き出し完成.png in Resources */ = {isa = PBXBuildFile; fileRef = 51872CF92495D64A0068193F /* 吹き出し完成.png */; };
 		51872CFC2495D83B0068193F /* アプリ象これ.gif in Resources */ = {isa = PBXBuildFile; fileRef = 51872CFB2495D83B0068193F /* アプリ象これ.gif */; };
-		51872CFE2495E5AC0068193F /* アプリ象赤黄色.gif in Resources */ = {isa = PBXBuildFile; fileRef = 51872CFD2495E5AC0068193F /* アプリ象赤黄色.gif */; };
+		51872D002498D2D00068193F /* point3yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 51872CFF2498D2D00068193F /* point3yellow.png */; };
+		51872D042498D7540068193F /* point_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 51872D032498D7530068193F /* point_orange.png */; };
+		51872D062498D93A0068193F /* point_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 51872D052498D93A0068193F /* point_blue.png */; };
+		51872D082498DE790068193F /* sound09.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 51872D072498DE790068193F /* sound09.mp3 */; };
+		51872D0A249902810068193F /* penpen.png in Resources */ = {isa = PBXBuildFile; fileRef = 51872D09249902810068193F /* penpen.png */; };
+		51872D0C2499028F0068193F /* cat.png in Resources */ = {isa = PBXBuildFile; fileRef = 51872D0B2499028F0068193F /* cat.png */; };
+		51872D0E249902950068193F /* cat_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 51872D0D249902950068193F /* cat_green.png */; };
+		51872D102499029C0068193F /* buta.png in Resources */ = {isa = PBXBuildFile; fileRef = 51872D0F2499029C0068193F /* buta.png */; };
+		51872D12249902A20068193F /* tako.png in Resources */ = {isa = PBXBuildFile; fileRef = 51872D11249902A20068193F /* tako.png */; };
+		51872D14249902A90068193F /* kuzira.png in Resources */ = {isa = PBXBuildFile; fileRef = 51872D13249902A90068193F /* kuzira.png */; };
+		51872D1624990D380068193F /* zou.png in Resources */ = {isa = PBXBuildFile; fileRef = 51872D1524990D380068193F /* zou.png */; };
 		51ABBE1A2474C17900A5E739 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ABBE192474C17900A5E739 /* AppDelegate.swift */; };
 		51ABBE1C2474C17900A5E739 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ABBE1B2474C17900A5E739 /* SceneDelegate.swift */; };
 		51ABBE1E2474C17900A5E739 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ABBE1D2474C17900A5E739 /* ViewController.swift */; };
@@ -48,11 +56,19 @@
 
 /* Begin PBXFileReference section */
 		5142BB6F248E4AC800C24EE3 /* Kiroku.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kiroku.swift; sourceTree = "<group>"; };
-		51872CF124951FFA0068193F /* point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = point.png; sourceTree = "<group>"; };
-		51872CF5249524260068193F /* point3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = point3.png; path = ../../../point3.png; sourceTree = "<group>"; };
 		51872CF92495D64A0068193F /* 吹き出し完成.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "吹き出し完成.png"; sourceTree = "<group>"; };
 		51872CFB2495D83B0068193F /* アプリ象これ.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "アプリ象これ.gif"; sourceTree = "<group>"; };
-		51872CFD2495E5AC0068193F /* アプリ象赤黄色.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "アプリ象赤黄色.gif"; sourceTree = "<group>"; };
+		51872CFF2498D2D00068193F /* point3yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = point3yellow.png; sourceTree = "<group>"; };
+		51872D032498D7530068193F /* point_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = point_orange.png; sourceTree = "<group>"; };
+		51872D052498D93A0068193F /* point_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = point_blue.png; sourceTree = "<group>"; };
+		51872D072498DE790068193F /* sound09.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound09.mp3; sourceTree = "<group>"; };
+		51872D09249902810068193F /* penpen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = penpen.png; sourceTree = "<group>"; };
+		51872D0B2499028F0068193F /* cat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat.png; sourceTree = "<group>"; };
+		51872D0D249902950068193F /* cat_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat_green.png; sourceTree = "<group>"; };
+		51872D0F2499029C0068193F /* buta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buta.png; sourceTree = "<group>"; };
+		51872D11249902A20068193F /* tako.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tako.png; sourceTree = "<group>"; };
+		51872D13249902A90068193F /* kuzira.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kuzira.png; sourceTree = "<group>"; };
+		51872D1524990D380068193F /* zou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zou.png; sourceTree = "<group>"; };
 		51ABBE162474C17900A5E739 /* まいトレ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "まいトレ.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		51ABBE192474C17900A5E739 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51ABBE1B2474C17900A5E739 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,17 +140,25 @@
 			isa = PBXGroup;
 			children = (
 				51FBBFA12494A0BF0008C5D5 /* sound36.mp3 */,
+				51872D072498DE790068193F /* sound09.mp3 */,
 				51872CFB2495D83B0068193F /* アプリ象これ.gif */,
 				51872CF92495D64A0068193F /* 吹き出し完成.png */,
-				51872CFD2495E5AC0068193F /* アプリ象赤黄色.gif */,
+				51872D1524990D380068193F /* zou.png */,
+				51872CFF2498D2D00068193F /* point3yellow.png */,
+				51872D032498D7530068193F /* point_orange.png */,
+				51872D052498D93A0068193F /* point_blue.png */,
+				51872D09249902810068193F /* penpen.png */,
+				51872D0B2499028F0068193F /* cat.png */,
+				51872D0D249902950068193F /* cat_green.png */,
+				51872D0F2499029C0068193F /* buta.png */,
+				51872D13249902A90068193F /* kuzira.png */,
+				51872D11249902A20068193F /* tako.png */,
 				51ABBE192474C17900A5E739 /* AppDelegate.swift */,
 				51ABBE1B2474C17900A5E739 /* SceneDelegate.swift */,
 				51ABBE1D2474C17900A5E739 /* ViewController.swift */,
 				51B5D2D424768B9700970990 /* ExerciseViewController.swift */,
 				51ABBE4B247580B900A5E739 /* KirokuTableViewController.swift */,
 				51ABBE4D247586B600A5E739 /* KirokuTableViewCell.swift */,
-				51872CF5249524260068193F /* point3.png */,
-				51872CF124951FFA0068193F /* point.png */,
 				51ABBE1F2474C17900A5E739 /* Main.storyboard */,
 				51ABBE222474C17D00A5E739 /* Assets.xcassets */,
 				51ABBE242474C17D00A5E739 /* LaunchScreen.storyboard */,
@@ -273,14 +297,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51872D0C2499028F0068193F /* cat.png in Resources */,
 				51872CFA2495D64A0068193F /* 吹き出し完成.png in Resources */,
+				51872D082498DE790068193F /* sound09.mp3 in Resources */,
+				51872D042498D7540068193F /* point_orange.png in Resources */,
+				51872D0A249902810068193F /* penpen.png in Resources */,
 				51FBBFA22494A0C00008C5D5 /* sound36.mp3 in Resources */,
+				51872D14249902A90068193F /* kuzira.png in Resources */,
+				51872D0E249902950068193F /* cat_green.png in Resources */,
 				51872CFC2495D83B0068193F /* アプリ象これ.gif in Resources */,
 				51ABBE262474C17D00A5E739 /* LaunchScreen.storyboard in Resources */,
-				51872CF6249524260068193F /* point3.png in Resources */,
-				51872CF224951FFB0068193F /* point.png in Resources */,
-				51872CFE2495E5AC0068193F /* アプリ象赤黄色.gif in Resources */,
+				51872D12249902A20068193F /* tako.png in Resources */,
+				51872D1624990D380068193F /* zou.png in Resources */,
 				51ABBE232474C17D00A5E739 /* Assets.xcassets in Resources */,
+				51872D102499029C0068193F /* buta.png in Resources */,
+				51872D002498D2D00068193F /* point3yellow.png in Resources */,
+				51872D062498D93A0068193F /* point_blue.png in Resources */,
 				51ABBE212474C17900A5E739 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,7 +519,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.1.0;
+				CURRENT_PROJECT_VERSION = 1.1.2;
 				DEVELOPMENT_TEAM = 2K446D59RQ;
 				INFOPLIST_FILE = Exercise/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
@@ -510,7 +542,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.1.0;
+				CURRENT_PROJECT_VERSION = 1.1.2;
 				DEVELOPMENT_TEAM = 2K446D59RQ;
 				INFOPLIST_FILE = Exercise/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
