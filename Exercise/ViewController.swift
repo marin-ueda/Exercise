@@ -10,6 +10,8 @@ import UIKit
 import RealmSwift
 
 class ViewController: UIViewController, UITextFieldDelegate {
+
+//    var imageView: UIImageView!
     
     //0601前ページからタイマーの数字持ってくる
     @IBOutlet weak var textField1: UITextField!
@@ -62,6 +64,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
             //        self?.nissu()
         }
         
+
+        
         //0615 UserDefaultsの更新があったらすぐに反映
 /*        UserDefaults.standard.set(hi, forKey: "kaisu")
         UserDefaults.standard.set(now_day, forKey: "date")*/
@@ -113,6 +117,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         goukei()
         //        nissu()
     }
+/*    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+            //で、アニメーションが終わったらimageViewを消す
+            self.imageView.removeFromSuperview()
+
+    }*/
     
     
     //0613 キーボードをreturnで閉じる
