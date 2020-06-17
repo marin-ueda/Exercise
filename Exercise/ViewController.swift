@@ -148,13 +148,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let img2 = UIImage(named: "point_orange.png")
         let img3 = UIImage(named: "point_blue.png")
         
-        if summ >= 20000 && summ < 30000 {
+        if summ >= 3000 && summ < 5000 {
             p.image = img3
-            pointLabel.text = String(summ - 20000)
+            pointLabel.text = String(summ - 3000)
             view.backgroundColor = UIColor.init(red: 255/255, green: 249/255, blue: 128/255, alpha: 1)
-        } else if summ >= 10000 {
+        } else if summ >= 1000 {
             p.image = img2
-            pointLabel.text = String(summ - 10000)
+            pointLabel.text = String(summ - 1000)
             view.backgroundColor = UIColor.init(red: 227/255, green: 219/255, blue: 255/255, alpha: 1)
         } else {
             p.image = img1

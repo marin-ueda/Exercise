@@ -387,13 +387,13 @@
                                     <action selector="retry" destination="deI-uo-IFK" eventType="touchUpInside" id="EEs-S0-B1W"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="タイマー" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7S-gS-WQ1">
-                                <rect key="frame" x="32" y="302" width="350" height="200"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Nicefight!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7S-gS-WQ1">
+                                <rect key="frame" x="-58" y="302" width="530" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="JBQ-4F-KVb"/>
                                     <constraint firstAttribute="height" constant="200" id="QRF-dm-nkH"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W7" family="Hiragino Sans" pointSize="70"/>
+                                <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="90"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -411,7 +411,7 @@
                                     <constraint firstAttribute="width" constant="290" id="klu-qk-SPa"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="運動している君は偉い！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MR2-MX-C9V">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ここまで続けた君はすごい" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MR2-MX-C9V">
                                 <rect key="frame" x="149" y="151" width="250" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="IsA-Mq-ysM"/>

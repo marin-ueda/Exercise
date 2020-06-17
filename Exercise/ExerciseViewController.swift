@@ -90,10 +90,7 @@ class ExerciseViewController: UIViewController, AVAudioPlayerDelegate {
 //        UserDefaults.standard.set(now_day, forKey: "date")
         //0608Realm入れてみる
         print(Realm.Configuration.defaultConfiguration.fileURL!)
-        //0613　改：Realmの更新があったらすぐに反映
-        notificationToken = kiroku.observe { [weak self] _ in
-            self?.Point()
-        }
+
         //0613 音入れる
         // 再生する audio ファイルのパスを取得
         let audioPath = Bundle.main.path(forResource: "sound36", ofType:"mp3")!
@@ -193,29 +190,35 @@ class ExerciseViewController: UIViewController, AVAudioPlayerDelegate {
         let img6 = UIImage(named: "tako.png")
         let img7 = UIImage(named: "kuzira.png")
 
-        let serihu:[String] = ["その調子！その調子！", "頑張れ〜!", "ファイトー！", "筋肉意識してね。", "呼吸大事だよ！", "息吸ってーはいてー", "肩の力抜いて！", "運動している君は偉い！", "毎日頑張ろう！", "明日もっと美しく！", "ナイスファイト", "もっといける！", "続ける事が大事！", "コツコツ頑張ろう！", "憧れに近づいてるよ！", "やればできる！", "目指せ10000ポイント！"]
 
 
-        if summ >= 20000 && summ < 30000 {
+        if summ >= 3000 && summ < 5000 {
             let ii:[UIImage?] = [img1, img2, img3, img4, img5, img6, img7]
             view.backgroundColor = UIColor.init(red: 255/255, green: 249/255, blue: 128/255, alpha: 1)
             let nu = arc4random_uniform(UInt32(ii.count))
             image.image = ii[Int(nu)]
+            let serihu:[String] = ["その調子！その調子！", "頑張れ〜!", "憧れに近づいてるよ！", "筋肉意識してね。", "呼吸大事だよ！", "息吸ってーはいてー", "肩の力抜いて！", "運動している君は偉い！", "毎日頑張ろう！", "明日もっと美しく！", "ナイスファイト", "もっといける！", "続ける事が大事！", "コツコツ頑張ろう！", "憧れに近づいてるよ！", "やればできる！", "目指せ1000ポイント！", "なんて素晴らしいんだ！", "身体変わってきた？", "すごいぞ！", "続けることは素晴らしい事。", "君は強い！！", "これからも頑張ろう！！", "ちょっと締まってきた？"]
+            let num = arc4random_uniform(UInt32(serihu.count))
+            serihuLabel.text = serihu[Int(num)]
 
-        } else if summ >= 10000 {
+        } else if summ >= 1000 {
             let iii:[UIImage?] = [img4, img6, img3]
             view.backgroundColor = UIColor.init(red: 227/255, green: 219/255, blue: 255/255, alpha: 1)
             let nu = arc4random_uniform(UInt32(iii.count))
             image.image = iii[Int(nu)]
+            let serihu:[String] = ["その調子！その調子！", "頑張れ〜!", "ここまで続けた君はすごい", "筋肉意識してね。", "呼吸大事だよ！", "息吸ってーはいてー", "肩の力抜いて！", "運動している君は偉い！", "毎日頑張ろう！", "明日もっと美しく！", "ナイスファイト", "もっといける！", "続ける事が大事！", "コツコツ頑張ろう！", "憧れに近づいてるよ！", "やればできる！", "目指せ3000ポイント！", "3000たまると…！！", "身体変わってきた？", "すごいぞ！", "続けることは素晴らしい事。", "君は強い！！", "これからも頑張ろう！！"]
+            let num = arc4random_uniform(UInt32(serihu.count))
+            serihuLabel.text = serihu[Int(num)]
         } else {
             let iiii:[UIImage?] = [img1]
             view.backgroundColor = UIColor.init(red: 194/255, green: 247/255, blue: 159/255, alpha: 1)
             let nu = arc4random_uniform(UInt32(iiii.count))
             image.image = iiii[Int(nu)]
+            let serihu:[String] = ["その調子！その調子！", "頑張れ〜!", "ファイトー！", "筋肉意識してね！", "呼吸大事だよ！", "息吸ってーはいてー", "肩の力抜いて！", "運動している君は偉い！", "毎日頑張ろう！", "明日もっと美しく！", "ナイスファイト", "もっといける！", "続ける事が大事！", "コツコツ頑張ろう！", "やればできる！", "目指せ1000ポイント！", "1000たまると…！！", "目標は続けること！"]
+            let num = arc4random_uniform(UInt32(serihu.count))
+            serihuLabel.text = serihu[Int(num)]
         }
 
-        let num = arc4random_uniform(UInt32(serihu.count))
-        serihuLabel.text = serihu[Int(num)]
 
     }
 
@@ -262,7 +265,7 @@ class ExerciseViewController: UIViewController, AVAudioPlayerDelegate {
         if (narg <= 0) {
             //タイマーが動作していたら停止する
             timer.invalidate()
-            TimerLabel.font = TimerLabel.font.withSize(52)
+            TimerLabel.font = TimerLabel.font.withSize(65)
             let argba = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
             TimerLabel.textColor = argba
             TimerLabel.text = String("Nice Fight!!")
@@ -303,22 +306,35 @@ class ExerciseViewController: UIViewController, AVAudioPlayerDelegate {
             timer.invalidate()
             count = 3
             narg = Double(arg)
+            
+            //0613　改：Realmの更新があったらすぐに反映
+            notificationToken = kiroku.observe { [weak self] _ in
+                self?.Point()
+            }
         }
     }
     
     //0603タイマーの色を秒数によって変える
     func textColor() {
-        if narg < 3.9 {
+        if narg < 4.0 {
             let rgba = UIColor(red: 1.0, green: 0.1, blue: 0.1, alpha: 1.0)
             TimerLabel.textColor = rgba
-            TimerLabel.font = TimerLabel.font.withSize(130)
+            TimerLabel.font = TimerLabel.font.withSize(190)
+            TimerLabel.text = String(narg)
+            TimerLabel.text = String(format: "%.1f", narg)
+        } else if narg >= 100 {
+            let argba = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
+            TimerLabel.textColor = argba
+            TimerLabel.font = TimerLabel.font.withSize(150)
+            TimerLabel.text = String(narg)
+            TimerLabel.text = String(format: "%.0f", narg)
         } else {
             let argba = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
             TimerLabel.textColor = argba
-            TimerLabel.font = TimerLabel.font.withSize(100)
+            TimerLabel.font = TimerLabel.font.withSize(150)
+            TimerLabel.text = String(narg)
+            TimerLabel.text = String(format: "%.1f", narg)
         }
-        TimerLabel.text = String(narg)
-        TimerLabel.text = String(format: "%.1f", narg)
     }
     //0603もう一度ボタン入れたい
     @IBAction func retry() {
